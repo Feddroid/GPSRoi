@@ -9,10 +9,6 @@
                 "parents": {
                     "/*": [
                         {
-                            "xml": "<feature name=\"Battery\"><param name=\"android-package\" value=\"org.apache.cordova.batterystatus.BatteryListener\" /></feature>",
-                            "count": 1
-                        },
-                        {
                             "xml": "<feature name=\"Camera\"><param name=\"android-package\" value=\"org.apache.cordova.camera.CameraLauncher\" /></feature>",
                             "count": 1
                         },
@@ -25,12 +21,7 @@
             },
             "AndroidManifest.xml": {
                 "parents": {
-                    "/*": [
-                        {
-                            "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
-                            "count": 1
-                        }
-                    ],
+                    "/*": [],
                     "/manifest/application": [
                         {
                             "xml": "<meta-data android:name=\"com.google.android.gms.version\" android:value=\"@integer/google_play_services_version\" />",
@@ -80,9 +71,6 @@
         }
     },
     "installed_plugins": {
-        "cordova-plugin-battery-status": {
-            "PACKAGE_NAME": "pe.roi.gps"
-        },
         "cordova-plugin-camera": {
             "PACKAGE_NAME": "pe.roi.gps"
         },
@@ -92,13 +80,6 @@
     },
     "dependent_plugins": {},
     "modules": [
-        {
-            "file": "plugins/cordova-plugin-battery-status/www/battery.js",
-            "id": "cordova-plugin-battery-status.battery",
-            "clobbers": [
-                "navigator.battery"
-            ]
-        },
         {
             "file": "plugins/cordova-plugin-camera/www/CameraConstants.js",
             "id": "cordova-plugin-camera.Camera",
@@ -136,7 +117,6 @@
         }
     ],
     "plugin_metadata": {
-        "cordova-plugin-battery-status": "1.1.2",
         "cordova-plugin-camera": "2.1.1",
         "cordova-plugin-mauron85-background-geolocation": "0.9.6"
     }

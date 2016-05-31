@@ -7,9 +7,6 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-plugin-battery-status": {
-            "PACKAGE_NAME": "pe.roi.gps"
-        },
         "cordova-plugin-camera": {
             "PACKAGE_NAME": "pe.roi.gps"
         },
