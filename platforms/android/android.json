@@ -9,7 +9,23 @@
                 "parents": {
                     "/*": [
                         {
+                            "xml": "<feature name=\"Battery\"><param name=\"android-package\" value=\"org.apache.cordova.batterystatus.BatteryListener\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"NetworkStatus\"><param name=\"android-package\" value=\"org.apache.cordova.networkinformation.NetworkManager\" /></feature>",
+                            "count": 1
+                        },
+                        {
                             "xml": "<feature name=\"BackgroundGeoLocation\"><param name=\"android-package\" value=\"com.tenforwardconsulting.cordova.bgloc.BackgroundGeolocationPlugin\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.LegacyWhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -17,7 +33,12 @@
             },
             "AndroidManifest.xml": {
                 "parents": {
-                    "/*": [],
+                    "/*": [
+                        {
+                            "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
+                            "count": 1
+                        }
+                    ],
                     "/manifest/application": [
                         {
                             "xml": "<meta-data android:name=\"com.google.android.gms.version\" android:value=\"@integer/google_play_services_version\" />",
@@ -67,21 +88,66 @@
         }
     },
     "installed_plugins": {
+        "cordova-plugin-battery-status": {
+            "PACKAGE_NAME": "com.transistorsoft.backgroundgeolocation"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.transistorsoft.backgroundgeolocation"
+        },
         "cordova-plugin-mauron85-background-geolocation": {
-            "PACKAGE_NAME": "pe.roi.gps"
+            "PACKAGE_NAME": "com.transistorsoft.backgroundgeolocation"
+        },
+        "cordova-plugin-legacy-whitelist": {
+            "PACKAGE_NAME": "com.transistorsoft.backgroundgeolocation"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.transistorsoft.backgroundgeolocation"
         }
     },
     "dependent_plugins": {},
     "modules": [
+        {
+            "file": "plugins/cordova-plugin-battery-status/www/battery.js",
+            "id": "cordova-plugin-battery-status.battery",
+            "clobbers": [
+                "navigator.battery"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-network-information/www/network.js",
+            "id": "cordova-plugin-network-information.network",
+            "clobbers": [
+                "navigator.connection",
+                "navigator.network.connection"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-network-information/www/Connection.js",
+            "id": "cordova-plugin-network-information.Connection",
+            "clobbers": [
+                "Connection"
+            ]
+        },
         {
             "file": "plugins/cordova-plugin-mauron85-background-geolocation/www/backgroundGeoLocation.js",
             "id": "cordova-plugin-mauron85-background-geolocation.backgroundGeoLocation",
             "clobbers": [
                 "backgroundGeoLocation"
             ]
+        },
+        {
+            "file": "plugins/cordova-plugin-device/www/device.js",
+            "id": "cordova-plugin-device.device",
+            "clobbers": [
+                "device"
+            ]
         }
     ],
     "plugin_metadata": {
-        "cordova-plugin-mauron85-background-geolocation": "0.9.6"
+        "cordova-plugin-battery-status": "1.1.2",
+        "cordova-plugin-network-information": "1.2.1",
+        "cordova-plugin-mauron85-background-geolocation": "0.9.6",
+        "cordova-plugin-legacy-whitelist": "1.1.1",
+        "cordova-plugin-device": "1.1.2"
     }
 }
