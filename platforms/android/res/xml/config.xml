@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.transistorsoft.backgroundgeolocation" version="0.7.4" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="pe.roi.gps" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
     <preference name="loglevel" value="DEBUG" />
     <feature name="Battery">
         <param name="android-package" value="org.apache.cordova.batterystatus.BatteryListener" />
@@ -17,17 +17,44 @@
         <param name="android-package" value="org.apache.cordova.whitelist.LegacyWhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
-    <allow-intent href="market:*" />
     <hook src="scripts/res_android.js" type="after_prepare" />
     <name>Cordova Background GeoLocation</name>
     <description>
         A minimal example of cordova BackgroundGeoLocation plugin.
     </description>
-    <author email="chris@transistorsoft.com" href="http://transistorsoft.com">
-        Chris Scott -- Transistor Software
-    </author>
-    <content src="index.html" />
     <gap:plugin name="cordova-plugin-mauron85-background-geolocation" source="npm" />
+    <hook src="scripts/install_plugins.js" type="after_platform_add" />
+    <feature name="SplashScreen">
+        <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
+        <param name="onload" value="true" />
+    </feature>
+    <icon density="ldpi" src="www/res/icon/android/drawable-ldpi-icon.png" />
+    <icon density="mdpi" src="www/res/icon/android/drawable-mdpi-icon.png" />
+    <icon density="hdpi" src="www/res/icon/android/drawable-hdpi-icon.png" />
+    <icon density="xhdpi" src="www/res/icon/android/drawable-xhdpi-icon.png" />
+    <icon density="xxhdpi" src="www/res/icon/android/drawable-xxhdpi-icon.png" />
+    <icon density="xxxhdpi" src="www/res/icon/android/drawable-xxxhdpi-icon.png" />
+    <splash density="land-ldpi" src="www/res/screen/android/drawable-land-ldpi-screen.png" />
+    <splash density="land-mdpi" src="www/res/screen/android/drawable-land-mdpi-screen.png" />
+    <splash density="land-hdpi" src="www/res/screen/android/drawable-land-hdpi-screen.png" />
+    <splash density="land-xhdpi" src="www/res/screen/android/drawable-land-xhdpi-screen.png" />
+    <splash density="land-xxhdpi" src="www/res/screen/android/drawable-land-xxhdpi-screen.png" />
+    <splash density="land-xxxhdpi" src="www/res/screen/android/drawable-land-xxxhdpi-screen.png" />
+    <splash density="port-ldpi" src="www/res/screen/android/drawable-port-ldpi-screen.png" />
+    <splash density="port-mdpi" src="www/res/screen/android/drawable-port-mdpi-screen.png" />
+    <splash density="port-hdpi" src="www/res/screen/android/drawable-port-hdpi-screen.png" />
+    <splash density="port-xhdpi" src="www/res/screen/android/drawable-port-xhdpi-screen.png" />
+    <splash density="port-xxhdpi" src="www/res/screen/android/drawable-port-xxhdpi-screen.png" />
+    <splash density="port-xxxhdpi" src="www/res/screen/android/drawable-port-xxxhdpi-screen.png" />
+    <allow-intent href="market:*" />
+    <name>GPSRoi</name>
+    <description>Hello World sample application that responds to the deviceready event.</description>
+    <author email="support@phonegap.com" href="http://phonegap.com">PhoneGap Team</author>
+    <content src="index.html" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="android-minSdkVersion" value="14" />
+    <preference name="android-build-tool" value="gradle" />
+    <icon src="icon.png" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -35,5 +62,4 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <hook src="scripts/install_plugins.js" type="after_platform_add" />
 </widget>

@@ -9,6 +9,15 @@
     "installed_plugins": {
         "cordova-plugin-mauron85-background-geolocation": {
             "PACKAGE_NAME": "pe.roi.gps"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "pe.roi.gps"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "pe.roi.gps"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "pe.roi.gps"
         }
     },
     "dependent_plugins": {},
@@ -52,9 +61,26 @@
             "clobbers": [
                 "backgroundGeoLocation"
             ]
+        },
+        {
+            "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
+            "id": "cordova-plugin-splashscreen.SplashScreen",
+            "pluginId": "cordova-plugin-splashscreen",
+            "clobbers": [
+                "navigator.splashscreen"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-splashscreen/src/browser/SplashScreenProxy.js",
+            "id": "cordova-plugin-splashscreen.SplashScreenProxy",
+            "pluginId": "cordova-plugin-splashscreen",
+            "runs": true
         }
     ],
     "plugin_metadata": {
-        "cordova-plugin-mauron85-background-geolocation": "0.9.6"
+        "cordova-plugin-mauron85-background-geolocation": "0.9.6",
+        "cordova-plugin-console": "1.0.3",
+        "cordova-plugin-whitelist": "1.2.2",
+        "cordova-plugin-splashscreen": "3.2.2"
     }
 }
