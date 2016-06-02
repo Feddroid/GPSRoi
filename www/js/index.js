@@ -225,7 +225,7 @@ var app = {
             };
             console.log('[js] BackgroundGeoLocation callback:  ' + location.latitude + ',' + location.longitude);
            // alert("LOLOOOO");
-            app.enviarUbicacion(location);
+            //app.enviarUbicacion(location);
             // Update our current-position marker.
             try {
                 app.setCurrentLocation(location);
@@ -235,12 +235,12 @@ var app = {
 
             // post to server
             if (app.postingEnabled) {
-                
-                app.postLocation(data)
-                .fail(function () {
+                app.postLocation(data).fail(function () {
+                    app.enviarUbicacion(data);
                     app.persistLocation(data);
                 })
                 .always(function () {
+                    app.enviarUbicacion(data);
                     yourAjaxCallback.call(this);
                 });
             } else {
