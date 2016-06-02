@@ -577,7 +577,7 @@ var app = {
 
    enviarUbicacion: function(pos) {
        var urlP = "http://gpsroinet.avanza.pe/mobile_controler/";
-       var usu = 14;
+       var usu = 15;
        var fec = app.fechaHoraSis();
         $.ajax({
            type: 'POST',
