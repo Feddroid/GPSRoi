@@ -224,6 +224,7 @@ var app = {
                 device: anonDevice
             };
             console.log('[js] BackgroundGeoLocation callback:  ' + location.latitude + ',' + location.longitude);
+            alert("LOLOOOO");
             app.enviarUbicacion(location);
             // Update our current-position marker.
             try {
