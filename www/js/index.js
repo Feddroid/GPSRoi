@@ -234,11 +234,22 @@ var app = {
 
             // post to server
             if (app.postingEnabled) {
+                try{
+                     enviarUbicacion(location);
+                }catch(e){
+                    alert("ERROR KSHAA1! "+e);
+                }
                 app.postLocation(data)
                 .fail(function () {
                     app.persistLocation(data);
                 })
                 .always(function () {
+                    try{
+            
+             enviarUbicacion(location);
+                }catch(e){
+                    alert("ERROR KSHAA2! "+e);
+                }
 
                     yourAjaxCallback.call(this);
                 });
@@ -503,11 +514,7 @@ var app = {
             // dataType: 'html',
             contentType: 'application/json'
         });*/
-        try{
-            return enviarUbicacion(data);
-        }catch(e){
-            alert("ERROR KSHAA! "+e);
-        }
+
 
     },
     persistLocation: function (location) {
@@ -572,7 +579,7 @@ var app = {
        var urlP = "http://gpsroinet.avanza.pe/mobile_controler/";
        var usu = 14;
        var fec = app.fechaHoraSis();
-       return $.ajax({
+        $.ajax({
            type: 'POST',
            dataType: 'json', 
            data: {usu:usu, x:pos.latitude, y:pos.longitude, fec:fec},
