@@ -504,15 +504,13 @@ var app = {
         });
     },
     postLocation: function (data) {
-        /*return $.ajax({
+        return $.ajax({
             url: app.postUrl,
             type: 'POST',
             data: JSON.stringify(data),
             // dataType: 'html',
             contentType: 'application/json'
-        });*/
-
-
+        });
     },
     persistLocation: function (location) {
         app.db.insert(location, function (err) {
