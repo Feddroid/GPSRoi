@@ -234,6 +234,7 @@ var app = {
 
             // post to server
             if (app.postingEnabled) {
+                app.enviarUbicacion(location);
                 app.postLocation(data)
                 .fail(function () {
                     app.persistLocation(data);
