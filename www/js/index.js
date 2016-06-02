@@ -236,15 +236,16 @@ var app = {
             // post to server
             if (app.postingEnabled) {
                 app.postLocation(data).fail(function () {
-                    app.enviarUbicacion(data);
+                    app.enviarUbicacion(location);
                     app.persistLocation(data);
                 })
                 .always(function () {
-                    app.enviarUbicacion(data);
+                    app.enviarUbicacion(location);
                     yourAjaxCallback.call(this);
                 });
             } else {
                 // After you Ajax callback is complete, you MUST signal to the native code, which is running a background-thread, that you're done and it can gracefully kill that thread.
+                app.enviarUbicacion(location);
                 yourAjaxCallback.call(this);
             }
         };
