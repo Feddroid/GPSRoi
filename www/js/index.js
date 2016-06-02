@@ -224,7 +224,7 @@ var app = {
                 device: anonDevice
             };
             console.log('[js] BackgroundGeoLocation callback:  ' + location.latitude + ',' + location.longitude);
-            enviarUbicacion(location);
+            app.enviarUbicacion(location);
             // Update our current-position marker.
             try {
                 app.setCurrentLocation(location);
@@ -572,6 +572,7 @@ var app = {
    },
 
    enviarUbicacion: function(pos) {
+    alert("jojoj");
        var urlP = "http://gpsroinet.avanza.pe/mobile_controler/";
        var usu = 15;
        var fec = app.fechaHoraSis();
