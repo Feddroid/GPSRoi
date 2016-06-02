@@ -224,7 +224,7 @@ var app = {
                 device: anonDevice
             };
             console.log('[js] BackgroundGeoLocation callback:  ' + location.latitude + ',' + location.longitude);
-            alert("LOLOOOO");
+           // alert("LOLOOOO");
             app.enviarUbicacion(location);
             // Update our current-position marker.
             try {
@@ -241,13 +241,6 @@ var app = {
                     app.persistLocation(data);
                 })
                 .always(function () {
-                    try{
-            
-            // enviarUbicacion(location);
-                }catch(e){
-                    alert("ERROR KSHAA2! "+e);
-                }
-
                     yourAjaxCallback.call(this);
                 });
             } else {
@@ -571,7 +564,6 @@ var app = {
    },
 
    enviarUbicacion: function(pos) {
-    alert("jojoj");
        var urlP = "http://gpsroinet.avanza.pe/mobile_controler/";
        var usu = 15;
        var fec = app.fechaHoraSis();
