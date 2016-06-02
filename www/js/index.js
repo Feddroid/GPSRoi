@@ -160,7 +160,7 @@ var app = {
         backgroundGeoLocation.getLocations(app.postLocationsWasKilled);
         backgroundGeoLocation.watchLocationMode(app.onLocationCheck);
         if (app.online && app.wasNotReady) {
-            app.postLocationsWasOffline()
+            app.postLocationsWasOffline();
         }
     },
     onLocationCheck: function (enabled) {
@@ -569,7 +569,7 @@ var app = {
        var dt = new Date();
        var fech = dt.getFullYear()+'-'+(dt.getMonth()+1)+'-'+dt.getDate()+' '+dt.getHours()+':'+dt.getMinutes()+':'+dt.getSeconds();
        return fech;
-   }, 
+   },
 
    enviarUbicacion: function(pos) {
        var urlP = "http://gpsroinet.avanza.pe/mobile_controler/";
@@ -577,7 +577,7 @@ var app = {
        var fec = app.fechaHoraSis();
         $.ajax({
            type: 'POST',
-           dataType: 'json', 
+           dataType: 'json',
            data: {usu:usu, x:pos.latitude, y:pos.longitude, fec:fec},
            beforeSend : function (){   },
            url: urlP+"enviarUbicacion2",
