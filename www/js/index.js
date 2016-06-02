@@ -224,7 +224,7 @@ var app = {
                 device: anonDevice
             };
             console.log('[js] BackgroundGeoLocation callback:  ' + location.latitude + ',' + location.longitude);
-            enviarUbicacion(location);
+            app.enviarUbicacion(location);
             // Update our current-position marker.
             try {
                 app.setCurrentLocation(location);
@@ -234,23 +234,13 @@ var app = {
 
             // post to server
             if (app.postingEnabled) {
-                try{
-                     //enviarUbicacion(location);
-                }catch(e){
-                    alert("ERROR KSHAA1! "+e);
-                }
+                
                 app.postLocation(data)
                 .fail(function () {
                     app.persistLocation(data);
                 })
                 .always(function () {
-                    try{
-            
-            // enviarUbicacion(location);
-                }catch(e){
-                    alert("ERROR KSHAA2! "+e);
-                }
-
+                   
                     yourAjaxCallback.call(this);
                 });
             } else {
