@@ -7,9 +7,6 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-plugin-mauron85-background-geolocation": {
-            "PACKAGE_NAME": "pe.roi.gps"
-        },
         "cordova-plugin-console": {
             "PACKAGE_NAME": "pe.roi.gps"
         },

@@ -160,7 +160,7 @@ var app = {
         backgroundGeoLocation.getLocations(app.postLocationsWasKilled);
         backgroundGeoLocation.watchLocationMode(app.onLocationCheck);
         if (app.online && app.wasNotReady) {
-            app.postLocationsWasOffline()
+            app.postLocationsWasOffline();
         }
     },
     onLocationCheck: function (enabled) {
@@ -176,10 +176,10 @@ var app = {
             level: ev.level / 100,
             is_charging: ev.isPlugged
         };
-        console.log('[DEBUG]: battery', app.battery);
+        console.log('[DEBUG]: battery 3', app.battery);
     },
     onOnline: function() {
-        console.log('Online');
+        console.log('Online 2');
         app.online = true;
         if (!app.ready) {
             app.wasNotReady = true;
@@ -188,7 +188,7 @@ var app = {
         app.postLocationsWasOffline();
     },
     onOffline: function() {
-        console.log('Offline');
+        console.log('Offline 1');
         app.online = false;
     },
     getDeviceInfo: function () {
@@ -224,7 +224,8 @@ var app = {
                 device: anonDevice
             };
             console.log('[js] BackgroundGeoLocation callback:  ' + location.latitude + ',' + location.longitude);
-             app.enviarUbicacion(location);
+           // alert("LOLOOOO");
+            //app.enviarUbicacion(location);
             // Update our current-position marker.
             try {
                 app.setCurrentLocation(location);
@@ -234,16 +235,17 @@ var app = {
 
             // post to server
             if (app.postingEnabled) {
-                app.enviarUbicacion(location);
-                app.postLocation(data)
-                .fail(function () {
+                app.postLocation(data).fail(function () {
+                    app.enviarUbicacion(location);
                     app.persistLocation(data);
                 })
                 .always(function () {
+                    app.enviarUbicacion(location);
                     yourAjaxCallback.call(this);
                 });
             } else {
                 // After you Ajax callback is complete, you MUST signal to the native code, which is running a background-thread, that you're done and it can gracefully kill that thread.
+                app.enviarUbicacion(location);
                 yourAjaxCallback.call(this);
             }
         };
